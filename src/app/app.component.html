@@ -1,0 +1,20 @@
+<div>
+
+<app-header></app-header>
+
+<div id="router" style="display: none;background-color:rgb(216, 231, 231)">
+    <a routerLink = "/subscribe"> Subscribe</a>
+    <a routerLink = "/twitter"> Twitterfeed</a>
+    <a routerLink = "/calculator"> Calculator</a>
+    <a routerLink = "/about"> About</a>
+    <a routerLink = "/404"> 404</a>
+    <a routerLink = "/"> Homepage</a>
+    <a routerLink = "/**"> 404</a>
+    <a routerLink = "/blogs"> Blogs</a>
+</div>
+<br>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+
+</div>

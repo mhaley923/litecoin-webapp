@@ -1,0 +1,102 @@
+<div style="text-align:center; float:left; padding-left: 20%">
+    <b style="font-size:170%">24 hour high = ${{this.oneDayHigh}} </b>
+</div>
+
+<div style="text-align:center; float:left; padding-left: 10%">
+    <b style="font-size:170%">24 hour low = ${{this.oneDayLow}} </b>         
+</div>
+
+<div *ngIf="this.priceIncreased" style="text-align:center; float:left; padding-left: 10%; color:green">
+        <b style="font-size:170%"> Net Change: {{this.percentPriceChange}}% </b>         
+   </div>
+
+   <div *ngIf="!this.priceIncreased" style="text-align:center; float:left; padding-left: 10%; color:red">
+        <b style="font-size:170%"> Net Change: {{this.percentPriceChange}}% </b>         
+   </div>
+
+<br><br>
+
+<div style="text-align:center; font-size:175%;">
+    <br>
+    <button pButton type="button" style="background-color:rgb(28, 55, 128);" label="Subscribe" routerLink="/subscribe" routerLinkActive="active"></button>  
+    <!--button pButton type="button" label="Subscribe" class="ui-button-success" routerLink="/subscribe" routerLinkActive="active"></button-->  
+</div>
+
+<div class="my-class">
+    
+    <br><br>
+    <div style="text-align:center;">
+        <button pButton type="button" (click)="displayChart(6)" label="1 Year" disabled = "true"></button>
+        <button pButton type="button" (click)="displayChart(5)" label="3 Months"></button>
+        <button pButton type="button" (click)="displayChart(4)" label="1 Month"></button>
+        <button pButton type="button" (click)="displayChart(3)" label="1 Week"></button>
+        <button pButton type="button" (click)="displayChart(2)" label="24 Hours"></button>
+        <button pButton type="button" (click)="displayChart(1)" label="12 Hours"></button>  
+        <p-dropdown [options]="source" [(ngModel)]="selectedSource" [style]="{'width':'150px', 'height':'30px'}"></p-dropdown>
+    </div>
+    <br><br>
+    
+    <p style="text-align:center; font-size:200%"> Price of LTC in USD </p>
+    
+    <br>
+    
+    <div #chart style="text-align:center; height: 500px;">
+        <!-- chart will appear-->
+    </div>
+    
+    <p style="text-align:center; font-size:150%"> Date / Time (EST) </p>
+
+    <div style="text-align:center;">
+        <br><br><br>
+        <b style="font-size:250%">Recent Blog Posts </b>
+        <br><br>       
+    </div>
+
+    <p-dataList [value]="blogs" [paginator]="false" [rows]="3">
+        <ng-template let-blog pTemplate="item">
+            <div class="ui-g ui-fluid blog-item" style = "background-color:rgb(216, 231, 231);">
+                <div class="ui-g-12 ui-md-3" style="text-align:center">
+                    <img width="200" src="{{blog.image}}">
+                </div>
+                <div class="ui-g-12 ui-md-9 blog-details">
+                    <div class="ui-g">
+                        <div class="ui-g-10 ui-sm-6" style="font-size:180%">
+                            <a href={{blog.url}}>{{blog.title}}</a>
+                        </div>
+                    <div class="ui-g-10 ui-sm-6" style="font-size:125%">{{blog.description}}</div>
+                    <br><br>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataList>
+    
+    <div style="text-align:center;">
+        <br><br><br>
+        <b style="font-size:250%">Recent Market News </b>
+        <br><br>       
+    </div>
+
+    <p-dataList [value]="articles" [paginator]="false" [rows]="3">
+        <ng-template let-article pTemplate="item">
+            <!--div class="ui-g ui-fluid article-item" style = "background-color:powderblue;"-->
+            <div class="ui-g ui-fluid article-item" style = "background-color:rgb(216, 231, 231);">
+                <div class="ui-g-12 ui-md-3" style="text-align:center">
+                    <img width="200" src="{{article.image}}">
+                    <!--img width="300" src="{{assets\images\rippleImage.png}}"-->        
+                </div>
+                <div class="ui-g-12 ui-md-9 article-details">
+                    <div class="ui-g">
+                        <div class="ui-g-10 ui-sm-6" style="font-size:180%">
+                            <a href={{article.url}}>{{article.title}}</a>
+                        </div>
+                    <div class="ui-g-10 ui-sm-6" style="font-size:125%">{{article.description}}</div>
+                    <br><br>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataList>
+
+</div>
+      

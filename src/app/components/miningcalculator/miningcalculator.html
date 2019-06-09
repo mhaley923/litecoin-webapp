@@ -1,0 +1,99 @@
+
+<div style="text-align:center">
+
+    <b><p style="font-size: 200%;"> Cryptocurrency Mining Profitablity Calculator</p></b>
+
+    <br><br>
+    <br><br>
+
+    <div style="float:left; width:75px; height: 10px;"> </div>
+  
+    <div style="float:left; width:100px; height: 10px;">
+
+        <!--p-listbox [options]="coins" [(ngModel)]="selectedCoin"></p-listbox-->
+
+        <p-listbox [options]="coins" [(ngModel)]="selectedCoin" (onClick) = "updateSelectedCoin($event)" (onChange) = "updateSelectedCoin($event)">
+            <ng-template let-coin pTemplate="item">
+                <div class="ui-helper-clearfix">
+                    <img src="assets/images/logos/{{coin.value.name}}.svg" style="display:inline-block;margin:5px 0 0 5px" width="30" height="30">
+                    <div style=" height: 30px;font-size:20px;float:left;margin:15px 5px 0 0"> {{coin.label}}  </div>
+                </div>
+            </ng-template>
+        </p-listbox>
+    </div>
+
+    <div>
+         
+        <b style="font-size: 150%;">&nbsp;&nbsp;&nbsp;&nbsp;Hash Rate:&nbsp;&nbsp;&nbsp;&nbsp;</b>
+        
+        <input placeholder="Hash Rate" style="font-size: 125%;" [(ngModel)]="hashRate" id="disabled-input" type="text" size="10" pInputText/><p-dropdown [options]="hashRateUnit" [(ngModel)]="selectedhashRate" [style]="{'width':'80px', 'height':'38px', 'font-size': '121%', 'color': 'grey'}"></p-dropdown>
+        
+        <b style="font-size: 150%;">&nbsp;&nbsp;&nbsp;&nbsp;Power (Watts):&nbsp;&nbsp;&nbsp;&nbsp;</b>
+        <input placeholder="Power (Watts):" style="font-size: 125%;" [(ngModel)]="power" id="disabled-input" type="text" size="14" pInputText/>
+        <br><br>
+        
+        <b style="font-size: 150%;">&nbsp;&nbsp;&nbsp;&nbsp;Power Cost ($/kWh):&nbsp;&nbsp;&nbsp;&nbsp;</b>
+        <input placeholder="Power Cost ($/kWh):" style="font-size: 125%;" [(ngModel)]="powerCost" id="disabled-input" type="text" size="14" pInputText/>
+        <b style="font-size: 150%;">&nbsp;&nbsp;&nbsp;&nbsp;Difficulty:&nbsp;&nbsp;&nbsp;&nbsp;</b>
+        <input placeholder="Difficulty:" style="font-size: 125%;" [(ngModel)]="difficulty" id="disabled-input" type="text" size="14" pInputText/>
+        <br><br>
+    
+        <b style="font-size: 150%;">&nbsp;&nbsp;&nbsp;&nbsp;Block Reward:&nbsp;&nbsp;&nbsp;&nbsp;</b>
+        <input placeholder="Block Reward:" style="font-size: 125%;" [(ngModel)]="blockReward" id="disabled-input" type="text" size="14" pInputText/>
+        <b style="font-size: 150%;">&nbsp;&nbsp;&nbsp;&nbsp;Pool Fee (%):&nbsp;&nbsp;&nbsp;&nbsp;</b>
+        <input placeholder="Pool Fee:" style="font-size: 125%;" [(ngModel)]="poolFee" id="disabled-input" type="text" size="14" pInputText/>
+        <br><br>
+
+        <!--div *ngIf="calculatePressed" style="font-size: 175%;">
+        <b> {{amount}}&nbsp;&nbsp;{{abbr1}}&nbsp;&nbsp;=&nbsp;&nbsp;{{rate}} &nbsp;&nbsp;&nbsp;{{abbr2}} </b> 
+        </div-->
+
+        <!--div *ngIf="!amount == null;else other_content"-->
+        <div>
+            <button pButton type="button" (click)="calculate()" label="Calculate" style="font-size: 200%;" disabled = 'true'></button>
+        </div>
+        
+        <ng-template #other_content>
+            <button pButton type="button" (click)="calculate()" label="Calculate" style="font-size: 200%;"></button>
+        </ng-template>
+        
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+
+        <p-table [value]="profitCalculations" [style]="{'padding-left':'100px','padding-right':'100px' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Time Frame</th>
+                    <th>Coins Mined ({{selectedCoin}}) </th>
+                    <th>Revenue (USD)</th>
+                    <th>Profit (USD)</th>
+                    <th>Power Cost (USD)</th>
+                </tr>
+            </ng-template>
+            <ng-template style = "height: 100px" pTemplate="body" let-profit>
+                
+                <tr style = "width:150px;height:60px">
+                    <td>{{profit.timeFrame}}</td>
+                    <td>{{profit.coinsMined}}</td>
+                    <td>{{profit.revenue}}</td>
+                    <td>{{profit.profit}}</td>
+                    <td>{{profit.power}}</td>
+                </tr>
+            </ng-template>
+
+        </p-table>
+
+
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+
+    </div>
+
+</div>
+

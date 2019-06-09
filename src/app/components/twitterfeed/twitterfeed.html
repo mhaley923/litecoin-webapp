@@ -1,0 +1,29 @@
+
+<div style="font-size: 150%; height: 1500px;">
+    
+    <p style="font-size: 200%;">
+        <a href="https://twitter.com/hashtag/litecoin">#litecoin</a> Twitter Feed
+    </p>    
+    
+    <div *ngFor="let tweet of tweets">
+    <mat-card style = "background-color:rgb(216, 231, 231);">
+            <img md-card-avatar alt="Avatar" height = "40" width="40" style="border-radius:50%; float:left" src={{tweet.image_url}}> 
+            <mat-card-header>
+                    <mat-card-title><a href={{tweet.username}} target="_blank">{{tweet.screen_name}}</a></mat-card-title>  
+                    <mat-card-subtitle>{{tweet.created_at | date: 'medium'}}</mat-card-subtitle> 
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{tweet.text}}</p>
+            </mat-card-content>
+    </mat-card>
+    </div>
+</div>
+      
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+pre {
+    display: block;
+    font-family: Arial;
+    background-color: rgb(84, 74, 226) ;
+}
+
+h2{
+    display: inline;
+    color:rgb(255,255, 255);
+
+}

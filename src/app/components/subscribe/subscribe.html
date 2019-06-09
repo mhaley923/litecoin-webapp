@@ -1,0 +1,30 @@
+<div style="text-align:center;">
+
+    <b><p style="font-size: 150%;">Please register your email to receive the latest <br>crypto updates. Thanks!</p></b>
+    
+    <input placeholder="First Name" style="font-size: 200%;" id="disabled-input" type="text" size="30" pInputText/>
+    <br><br>
+    <input placeholder="Last Name" style="font-size: 200%;" id="disabled-input" type="text" size="30" pInputText/>
+    <br><br>
+    <input [(ngModel)]="email" placeholder="enter email (e.g. joe@xyz.com)" style="font-size: 200%;" id="disabled-input" type="text" size="30" pInputText [disabled]="disabled"/>
+    <br><br>
+    <button style="font-size: 200%;" id="disabled-btn" type="button" (click)="submitEmail()" pButton label="Submit"></button>
+    
+    <!-- Email success block -->
+    <div *ngIf="disabled" style="font-size: 200%; color:green">
+        <br><br>
+        Success!
+        <br><br>
+        <button pButton type="button" icon="fas fa-arrow-left" label = "Back to Homepage" routerLink="/" routerLinkActive="active"></button>
+    </div>
+    
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+
+</div>

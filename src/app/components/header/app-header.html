@@ -1,0 +1,16 @@
+<div style="text-align:center; font-size:150%; color:rgb(255, 255, 255); background-color: rgb(84, 74, 226) ;">
+        
+        <!--img width="125" src="https://fangalbert-ocsdurtbpzfhe.netdna-ssl.com/wp-content/uploads/2018/01/Litecoin-logo-1024x337.png" class = "logo" routerLink="/" routerLinkActive="active"-->
+        <img width="190" height="50" src="assets/images/LitecoinLogo.png" class = "logo" routerLink="/" routerLinkActive="active">
+        <!--img width="125" src="{{src\assets\images\LitecoinLogo.png}}" class = "logo" routerLink="/" routerLinkActive="active"-->  
+        <b>Market Cap: ${{marketCap}} | | </b> 
+        <b>24hr Volume: ${{volume}} </b> 
+        
+        <button type="button" pButton icon="fa fa-list" label="Menu" style = "float: right; color:rgb(255, 255, 255); background-color: rgb(84, 74, 226) ;" (click)="menu.toggle($event)"></button>
+        <div style="font-size:75% ;"><p-menu #menu popup="popup" [model]="items"></p-menu></div>
+
+        <b style="font-size:225%">LTC = ${{litecoinPrice}}</b>
+        <br>
+        <b style="font-size:200%">per coin</b>  
+
+</div>

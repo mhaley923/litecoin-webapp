@@ -1,0 +1,29 @@
+<div style="text-align:center;">
+    
+    <b><p style="font-size: 200%;"> Cryptocurrency Calculator Tool</p></b>
+    <br><br>
+    <input placeholder="Enter Amount" style="font-size: 200%; width:250px" [(ngModel)]="amount" id="disabled-input" type="text" size="10" pInputText/>
+    <br><br>
+    <p-dropdown [options]="currency1" [(ngModel)]="selectedCurrency1" [style]="{'width':'150px', 'height':'50px', 'font-size': '175%'}"></p-dropdown>
+    <b style="font-size: 150%;">&nbsp;&nbsp;&nbsp;&nbsp;converted to&nbsp;&nbsp;&nbsp;&nbsp;</b>
+    <p-dropdown [options]="currency2" [(ngModel)]="selectedCurrency2" [style]="{'width':'150px', 'height':'50px', 'font-size': '175%'}"></p-dropdown>
+    <br><br>
+    
+    <div *ngIf="calculatePressed" style="font-size: 175%;">
+    <b> {{amount}}&nbsp;&nbsp;{{abbr1}}&nbsp;&nbsp;=&nbsp;&nbsp;{{rate}} &nbsp;&nbsp;&nbsp;{{abbr2}} </b> 
+    </div>
+    <br><br>
+
+    <div *ngIf="amount == null || selectedCurrency1 == null || selectedCurrency2 == null;else other_content">
+        <button pButton type="button" (click)="calculate()" label="Calculate" style="font-size: 200%;" disabled = 'true'></button>
+    </div>
+    
+    <ng-template #other_content>
+        <button pButton type="button" (click)="calculate()" label="Calculate" style="font-size: 200%;"></button>
+    </ng-template>
+
+    <br><br>
+    <br><br>
+    <br><br>
+
+</div>
